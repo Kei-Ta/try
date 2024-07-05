@@ -1,0 +1,18 @@
+docker_image.nginx: Refreshing state... [id=sha256:0469e929ca6320c98871e17260708787ca6e6547a0b4b21a8854e455adac73dfnginx:latest]
+null_resource.example: Refreshing state... [id=7896919279662235763]
+local_file.example_aaaaa: Refreshing state... [id=42086c02e03bf671ddf621ed9922f52f2c7a605c]
+docker_container.nginx: Refreshing state... [id=a1c114ba462ca0497ae85acc66e77840e583637306f6345c0f61183b15a8ebbf]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+
+Warning: Deprecated attribute
+
+  on main.tf line 18, in resource "docker_container" "nginx":
+  18:   image = docker_image.nginx.latest
+
+The attribute "latest" is deprecated. Refer to the provider documentation for details.
+
+(and one more similar warning elsewhere)

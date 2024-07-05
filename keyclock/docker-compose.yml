@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      - KEYCLOAK_USER=AAAA@@@@
+      - KEYCLOAK_PASSWORD=AAAA@@@@
+      - DB_VENDOR=postgres
+      - DB_ADDR=postgres
+      - DB_DATABASE=keycloak
+      - DB_USER=keycloak
+      - DB_PASSWORD=password
+    ports:
+      - "8083:8080"
+    depends_on:
+      - postgres
+    command:
+      - start-dev
+
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=keycloak
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
